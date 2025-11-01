@@ -1,16 +1,22 @@
-# my_travaly_task
+# MyTravaly Task
 
-A new Flutter project.
+A Flutter application built as part of the Flutter Developer screening task at MyTravaly.
+
+## Features
+- Google Sign-In/Sign-Up screen (frontend-only)
+- Home page with hotel list fetched from API
+- Search functionality with autocomplete
+- Pagination for search results
+- BLoC architecture for state management
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
+- Flutter must be installed: [Flutter Installation Guide](https://docs.flutter.dev/get-started/install)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Setup
+```bash
+git clone <your-repo-url>
+cd my_travaly_task
+flutter pub get
+flutter run
