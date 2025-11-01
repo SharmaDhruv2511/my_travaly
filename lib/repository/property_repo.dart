@@ -1,0 +1,50 @@
+import 'package:my_travaly_task/network/api_reponse.dart';
+import 'package:my_travaly_task/network/request_manager.dart';
+import 'package:my_travaly_task/models/property_model.dart';
+
+class PropertyRepo {
+  Future<ApiResponse> fetchProperties() async {
+    final body = {
+      "action": "popularStay",
+      "popularStay": {
+        "limit": 10,
+        "entityType": "Any",
+        "filter": {
+          "searchType": "byCity",
+          "searchTypeInfo": {
+            "country": "India",
+            "state": "Jharkhand",
+            "city": "Jamshedpur",
+          },
+        },
+        "currency": "INR",
+      },
+    };
+
+    final response = await RequestManager.postRequest(
+      body: body,
+      headers: {
+        "authtoken": "71523fdd8d26f585315b4233e39d9263",
+        "visitortoken": "09c0-ee1d-8408-fd79-70da-cc58-7c49-12f9",
+      },
+    );
+
+    if (response.apiStatus == ApiStatus.success && response.json != null) {
+      try {
+        final parsedData = Property.fromJson(response.json);
+        return ApiResponse(
+          apiStatus: ApiStatus.success,
+          errorMessage: "",
+          json: parsedData,
+        );
+      } catch (_) {
+        return ApiResponse(
+          apiStatus: ApiStatus.error,
+          errorMessage: "Data Parsing Failed",
+        );
+      }
+    }
+
+    return response; 
+  }
+}
