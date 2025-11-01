@@ -6,7 +6,6 @@ A Flutter application built as part of the Flutter Developer screening task at M
 - Google Sign-In/Sign-Up screen (frontend-only)
 - Home page with hotel list fetched from API
 - Search functionality with autocomplete
-- Pagination for search results
 - BLoC architecture for state management
 
 ## Getting Started
